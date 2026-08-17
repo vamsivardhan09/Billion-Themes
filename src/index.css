@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+@theme {
+  --color-white: #FFFFFF;
+  --color-cream: #FDFBF7;             /* Warm off-white primary background */
+  --color-cream-dark: #F4F1EA;        /* Secondary warm off-white bg */
+  
+  --color-[#121417]: #121417;        /* Deep architectural charcoal for dark sections */
+  --color-[#16191D]: #16191D;        /* Slightly lighter dark charcoal */
+  
+  --color-navy: #1C4466;              /* Brand Slate Navy (from logo 'T' & 'THEMES') */
+  --color-navy-dark: #122F48;
+  --color-navy-light: #2B5F8C;
+  
+  --color-gold: #C9A96E;              /* Muted Architectural Gold */
+  --color-gold-light: #D9B97E;
+  --color-gold-dark: #B5955A;
+  
+  --color-charcoal: #121417;          /* Primary dark text */
+  --color-muted: #667085;             /* Secondary slate body copy */
+  --color-border: #E4E7EC;            /* Hairline architectural border */
+  --color-border-dark: #22272E;
+  
+  --font-display: 'Cinzel', serif;
+  --font-body: 'Outfit', sans-serif;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: #2D3748;
+  background-color: var(--color-cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--color-gold);
+  color: white;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FDFBF7;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: 3px;
+}
+
+/* Typography utilities - Editorial & Architectural */
+.heading-xl {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 5.5vw, 4.75rem);
+  line-height: 1.08;
+  letter-spacing: 0.01em;
+  font-weight: 500;
+}
+
+.heading-lg {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 4.2vw, 3.5rem);
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+}
+
+.heading-md {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.2vw, 2.5rem);
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+}
+
+.heading-sm {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  line-height: 1.3;
+  letter-spacing: 0.03em;
+  font-weight: 500;
+}
+
+.label-text {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Section container utility - Generous Whitespace */
+.section-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.75rem;
+}
+
+@media (min-width: 768px) {
+  .section-container {
+    padding: 0 3.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .section-container {
+    padding: 0 5rem;
+  }
+}
+
+/* Section vertical spacing - Editorial Whitespace */
+.section-padding {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 8.5rem;
+    padding-bottom: 8.5rem;
+  }
+}
+
+/* Thin Architectural Dividers */
+.hairline-divider {
+  height: 1px;
+  background-color: var(--color-border);
+  width: 100%;
+}
+
+.hairline-divider-dark {
+  height: 1px;
+  background-color: var(--color-border-dark);
+  width: 100%;
+}
+
+/* Image hover effect - Subtle Architectural Scale */
+.image-hover {
+  overflow: hidden;
+}
+.image-hover img {
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.image-hover:hover img {
+  transform: scale(1.03);
+}
+
+/* Muted Gold Accent Line */
+.gold-line {
+  width: 45px;
+  height: 1.5px;
+  background-color: var(--color-gold);
+}
+
+/* Hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
