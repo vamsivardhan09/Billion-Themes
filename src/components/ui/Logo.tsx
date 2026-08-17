@@ -19,16 +19,7 @@ export function Logo({ className = '', variant = 'color', height = 50 }: LogoPro
         className="h-full w-auto max-w-full"
         aria-label="Billion Themes Private Limited Logo"
       >
-        {/* LAYER 1 (BACK): Horizontal Split Lines (Gold on left, Navy on right) */}
-        {/* Top Horizontal Line */}
-        <line x1="10" y1="88" x2="165" y2="88" stroke={gold} strokeWidth="5" strokeLinecap="square" />
-        <line x1="165" y1="88" x2="330" y2="88" stroke={navy} strokeWidth="5" strokeLinecap="square" />
-
-        {/* Bottom Horizontal Line */}
-        <line x1="10" y1="140" x2="165" y2="140" stroke={gold} strokeWidth="5" strokeLinecap="square" />
-        <line x1="165" y1="140" x2="330" y2="140" stroke={navy} strokeWidth="5" strokeLinecap="square" />
-
-        {/* LAYER 2 (MIDDLE): Giant 'B' (Gold) & Giant 'T' (Navy) */}
+        {/* LAYER 1 (BACKGROUND): Giant 'B' (Gold) & Giant 'T' (Navy) */}
         <text
           x="12"
           y="182"
@@ -36,6 +27,7 @@ export function Logo({ className = '', variant = 'color', height = 50 }: LogoPro
           fontSize="215"
           fontWeight="700"
           fill={gold}
+          fillOpacity="0.85"
         >
           B
         </text>
@@ -47,35 +39,44 @@ export function Logo({ className = '', variant = 'color', height = 50 }: LogoPro
           fontSize="215"
           fontWeight="700"
           fill={navy}
+          fillOpacity="0.85"
         >
           T
         </text>
 
-        {/* LAYER 3 (FRONT): Text "BILLION" (Gold) and "THEMES" (Navy) */}
+        {/* LAYER 2 (MIDDLE): Horizontal Split Lines */}
+        <line x1="10" y1="88" x2="165" y2="88" stroke={gold} strokeWidth="5" strokeLinecap="square" />
+        <line x1="165" y1="88" x2="330" y2="88" stroke={navy} strokeWidth="5" strokeLinecap="square" />
+
+        <line x1="10" y1="140" x2="165" y2="140" stroke={gold} strokeWidth="5" strokeLinecap="square" />
+        <line x1="165" y1="140" x2="330" y2="140" stroke={navy} strokeWidth="5" strokeLinecap="square" />
+
+        {/* LAYER 3 (FOREGROUND - OVER BT): Company Name BILLION (Gold) & THEMES (Navy) */}
         <text
-          x="35"
+          x="32"
           y="126"
           fontFamily="Cinzel, sans-serif"
-          fontSize="25"
-          fontWeight="700"
-          letterSpacing="1.2"
+          fontSize="26"
+          fontWeight="800"
+          letterSpacing="1.5"
           fill={gold}
         >
           BILLION
         </text>
+        
         <text
-          x="180"
+          x="178"
           y="126"
           fontFamily="Cinzel, sans-serif"
-          fontSize="25"
-          fontWeight="700"
-          letterSpacing="1.2"
+          fontSize="26"
+          fontWeight="800"
+          letterSpacing="1.5"
           fill={navy}
         >
           THEMES
         </text>
 
-        {/* Subtitle: INTERIO & EXTERIO */}
+        {/* Subtitle FOREGROUND: INTERIO & EXTERIO */}
         <text
           x="55"
           y="238"
