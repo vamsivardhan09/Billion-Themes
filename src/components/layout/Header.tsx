@@ -4,7 +4,6 @@ import { Menu, X } from 'lucide-react';
 import { navItems } from '@/data/navigation';
 import { COMPANY } from '@/data/company';
 import { Button } from '../ui/Button';
-import { Logo } from '../ui/Logo';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,9 +35,17 @@ export function Header() {
         }`}
       >
         <div className="section-container flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex items-center group" aria-label="Billion Themes Home">
-            <Logo height={isScrolled ? 42 : 48} variant={useDarkNav ? 'white' : 'color'} className="transition-all duration-300" />
+          
+          {/* Executive Typography Brand Title (No Logo Graphic) */}
+          <Link to="/" className="flex flex-col group" aria-label="Billion Themes Home">
+            <span className={`font-display font-semibold text-lg md:text-xl tracking-wider transition-colors duration-300 ${
+              useDarkNav ? 'text-white' : 'text-[#121417]'
+            }`}>
+              BILLION <span className="text-[#D98E20]">THEMES</span>
+            </span>
+            <span className="font-body text-[9px] uppercase tracking-[0.25em] text-[#D98E20] font-semibold">
+              PRIVATE LIMITED
+            </span>
           </Link>
 
           {/* Desktop Nav */}

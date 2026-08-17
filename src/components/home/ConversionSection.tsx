@@ -1,39 +1,37 @@
 import React from 'react';
 import { Button } from '../ui/Button';
-import { FadeUp } from '../ui/motion/FadeUp';
 import { COMPANY } from '@/data/company';
 
 export function ConversionSection() {
   return (
-    <section className="bg-[#121417] text-white section-padding text-center relative overflow-hidden border-t border-[#22272E]">
-      {/* Background Subtle Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#121417] via-[#16191D] to-[#121417] pointer-events-none" />
+    <section className="bg-gradient-to-b from-[#FDFBF7] via-[#F4F8FA] to-[#FDFBF7] section-padding border-t border-slate-200/80 text-center">
+      <div className="section-container max-w-4xl space-y-8">
+        
+        {/* Accent Bar */}
+        <div className="w-12 h-[2px] bg-[#D98E20] mx-auto" />
 
-      <div className="section-container relative z-10 py-12">
-        <FadeUp>
-          {/* Gold Divider Line */}
-          <div className="w-12 h-[2px] bg-[#C9A96E] mx-auto mb-8" />
-          
-          <h2 className="heading-xl text-white font-display mb-6 leading-tight max-w-4xl mx-auto">
-            LET'S BUILD SOMETHING BEAUTIFUL.
-          </h2>
-          
-          <p className="font-body text-slate-300 text-base md:text-lg max-w-2xl mx-auto mb-12 font-light leading-relaxed">
-            Discuss your residential, commercial, or structural project with Billion Themes Private Limited in Nellore.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
-            <Button variant="primary" href="/contact" size="lg" className="w-full sm:w-auto min-w-[210px]">
-              START A PROJECT
-            </Button>
-            <Button variant="whatsapp" href={COMPANY.whatsappUrl} size="lg" className="w-full sm:w-auto min-w-[210px]">
-              WHATSAPP US
-            </Button>
-            <Button variant="phone" href={`tel:${COMPANY.phone}`} size="lg" className="w-full sm:w-auto min-w-[210px]">
-              CALL NOW
-            </Button>
-          </div>
-        </FadeUp>
+        {/* Main Headline */}
+        <h2 className="heading-xl font-display text-[#121417] leading-tight font-medium">
+          Let's Build Something Beautiful.
+        </h2>
+
+        <p className="font-body text-[#667085] text-base md:text-lg max-w-2xl mx-auto font-light leading-relaxed">
+          From turnkey civil engineering to bespoke residential &amp; commercial interiors in Nellore — reach out directly to start your project.
+        </p>
+
+        {/* Buttons Row */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+          <Button href={COMPANY.whatsappUrl} variant="whatsapp" size="lg">
+            WHATSAPP US
+          </Button>
+          <Button href={`tel:${COMPANY.phone}`} variant="phone" size="lg">
+            CALL NOW: {COMPANY.phoneDisplay}
+          </Button>
+          <Button href="/contact" variant="primary" size="lg">
+            BOOK CONSULTATION
+          </Button>
+        </div>
+
       </div>
     </section>
   );
