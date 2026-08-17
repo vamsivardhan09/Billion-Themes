@@ -28,7 +28,6 @@ export function ProcessSection() {
       position: 'top',
       milestone: 'Day 0 · Journey begins',
       iconNum: '01',
-      mobileSide: 'right',
     },
     {
       step: 'STOP 02',
@@ -37,7 +36,6 @@ export function ProcessSection() {
       position: 'bottom',
       milestone: '10% · to begin design',
       iconNum: '02',
-      mobileSide: 'left',
     },
     {
       step: 'STOP 03',
@@ -46,7 +44,6 @@ export function ProcessSection() {
       position: 'top',
       milestone: '50% · at production kickoff',
       iconNum: '03',
-      mobileSide: 'right',
     },
     {
       step: 'STOP 04',
@@ -55,7 +52,6 @@ export function ProcessSection() {
       position: 'bottom',
       milestone: '40% · before installation',
       iconNum: '04',
-      mobileSide: 'left',
     },
     {
       step: 'STOP 05',
@@ -64,7 +60,6 @@ export function ProcessSection() {
       position: 'top',
       milestone: null,
       iconNum: '05',
-      mobileSide: 'right',
     },
     {
       step: 'STOP 06',
@@ -73,7 +68,6 @@ export function ProcessSection() {
       position: 'bottom',
       milestone: 'Welcome Home 🎉',
       iconNum: '06',
-      mobileSide: 'left',
     },
   ];
 
@@ -110,7 +104,7 @@ export function ProcessSection() {
               fill="none"
               preserveAspectRatio="none"
             >
-              {/* Background Grey Track Line */}
+              {/* Background Track Line */}
               <path
                 d="M 50 200 C 150 120, 250 280, 350 200 C 450 120, 550 280, 650 200 C 750 120, 850 280, 950 200 C 1050 120, 1150 200, 1180 200"
                 stroke="#E2E8F0"
@@ -249,95 +243,57 @@ export function ProcessSection() {
           </div>
         </div>
 
-        {/* Mobile Vertical S-Curve Wave Timeline (Matching aesthetixspaces.com screenshot) */}
-        <div className="lg:hidden relative my-8 py-4">
+        {/* Mobile Sleek Vertical Curve Wave Flow (Matching aesthetixspaces.com screenshot) */}
+        <div className="lg:hidden relative my-8 py-2">
           
-          {/* Vertical S-Curve Wave SVG Line */}
-          <div className="absolute inset-0 pointer-events-none z-0">
-            <svg
-              className="w-full h-full"
-              viewBox="0 0 360 1100"
-              fill="none"
-              preserveAspectRatio="none"
-            >
-              {/* Background Track Line */}
-              <path
-                d="M 180 40 Q 60 130 60 220 T 300 400 T 60 580 T 300 760 T 60 940 T 180 1060"
-                stroke="#E2E8F0"
-                strokeWidth="6"
-                strokeLinecap="round"
-              />
+          {/* Vertical Wave Track */}
+          <div className="absolute left-6 top-6 bottom-6 w-1 bg-slate-200/80 rounded-full" />
+          <motion.div
+            className="absolute left-6 top-6 w-1 bg-gradient-to-b from-[#1C4466] via-[#D98E20] to-[#1C4466] rounded-full"
+            style={{ height: useTransform(smoothProgress, [0, 1], ['0%', '100%']) }}
+          />
 
-              {/* Scroll Filled Wave Line */}
-              <motion.path
-                d="M 180 40 Q 60 130 60 220 T 300 400 T 60 580 T 300 760 T 60 940 T 180 1060"
-                stroke="url(#mobileWaveGradient)"
-                strokeWidth="6"
-                strokeLinecap="round"
-                style={{ pathLength }}
-              />
-
-              <defs>
-                <linearGradient id="mobileWaveGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="#1C4466" />
-                  <stop offset="50%" stopColor="#D98E20" />
-                  <stop offset="100%" stopColor="#1C4466" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
-
-          {/* Mobile Alternating Cards Layout */}
-          <div className="space-y-12 relative z-10">
-            {stops.map((item, idx) => {
-              const isRight = item.mobileSide === 'right';
-
-              return (
-                <div key={item.step} className="relative flex flex-col items-center">
-                  
-                  {/* Step Card (Alternating Left/Right) */}
-                  <div className={`w-[82%] ${isRight ? 'ml-auto pl-2' : 'mr-auto pr-2'}`}>
-                    <div className="bg-white p-4 sm:p-5 rounded-xl border border-slate-200/90 shadow-sm relative group">
-                      
-                      {/* Milestone Pill Badge attached to card */}
-                      {item.milestone && (
-                        <div className="mb-2">
-                          <span className="bg-[#FFF4E5] text-[#B87618] border border-[#FCD39D] text-[10px] font-body px-2.5 py-0.5 rounded-full inline-flex items-center font-semibold">
-                            {idx === 0 && <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] mr-1.5 animate-pulse" />}
-                            {idx > 0 && idx < 5 && <IndianRupee size={10} className="mr-0.5" />}
-                            {idx === 5 && <Key size={10} className="mr-1 text-[#D98E20]" />}
-                            {item.milestone}
-                          </span>
-                        </div>
-                      )}
-
-                      <div className="flex items-center justify-between text-[11px] font-body uppercase tracking-wider mb-1">
-                        <span className="text-[#1C4466] font-bold">{item.step}</span>
-                      </div>
-
-                      <h4 className="font-display font-semibold text-base text-[#121417] mb-1.5">
-                        {item.title}
-                      </h4>
-
-                      <div className="flex items-center text-xs font-body text-slate-600">
-                        <CheckCircle2 size={13} className="text-[#1C4466] mr-1.5 shrink-0" />
-                        <span>{item.check}</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Pin Node Circle on Mobile S-Curve */}
-                  <div
-                    className={`absolute top-6 w-9 h-9 rounded-full bg-[#1C4466] text-white flex items-center justify-center text-xs font-bold border-2 border-white shadow-md z-20 ${
-                      isRight ? 'left-[14%]' : 'right-[14%]'
-                    }`}
-                  >
-                    {item.iconNum}
-                  </div>
-
+          {/* Mobile Step Cards List */}
+          <div className="space-y-8 pl-12 relative z-10">
+            {stops.map((item, idx) => (
+              <div key={item.step} className="relative group">
+                
+                {/* Pin Node Circle on Left Track */}
+                <div className="absolute -left-[45px] top-4 w-7 h-7 rounded-full bg-[#1C4466] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-sm shrink-0">
+                  {item.iconNum}
                 </div>
-              );
-            })}
+
+                {/* Minimal White Step Frame Box */}
+                <div className="bg-white p-4 rounded-xl border border-slate-200/90 shadow-xs space-y-2">
+                  
+                  {/* Milestone Pill Badge */}
+                  {item.milestone && (
+                    <div>
+                      <span className="bg-[#FFF4E5] text-[#B87618] border border-[#FCD39D] text-[10px] font-body px-2.5 py-0.5 rounded-full inline-flex items-center font-semibold">
+                        {idx === 0 && <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] mr-1.5 animate-pulse" />}
+                        {idx > 0 && idx < 5 && <IndianRupee size={9} className="mr-0.5" />}
+                        {idx === 5 && <Key size={9} className="mr-1 text-[#D98E20]" />}
+                        {item.milestone}
+                      </span>
+                    </div>
+                  )}
+
+                  <div className="flex items-center justify-between text-[10px] font-body uppercase tracking-wider text-[#1C4466] font-bold">
+                    <span>{item.step}</span>
+                  </div>
+
+                  <h4 className="font-display font-semibold text-base text-[#121417]">
+                    {item.title}
+                  </h4>
+
+                  <div className="flex items-center text-xs font-body text-slate-600">
+                    <CheckCircle2 size={13} className="text-[#1C4466] mr-1.5 shrink-0" />
+                    <span>{item.check}</span>
+                  </div>
+                </div>
+
+              </div>
+            ))}
           </div>
 
         </div>
