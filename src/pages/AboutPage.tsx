@@ -5,7 +5,7 @@ import { Camera, ShieldCheck, MapPin, Award, CheckCircle2, User, Building2, Comp
 
 export default function AboutPage() {
   useEffect(() => {
-    document.title = 'About & Founder — Billion Themes';
+    document.title = 'About & Leadership — Billion Themes';
   }, []);
 
   const founder = COMPANY.founder;
@@ -39,26 +39,30 @@ export default function AboutPage() {
 
   return (
     <main className="bg-[#FDFBF7]">
-      {/* Hero Section */}
+      {/* Hero Header */}
       <section className="bg-[#121417] text-white section-padding text-center relative overflow-hidden">
-        <div className="section-container relative z-10 py-8">
-          <span className="label-text text-[#C9A96E]">Architecture · Interiors · Civil Engineering</span>
-          <h1 className="heading-xl font-display text-white mt-2 mb-4">About Billion Themes</h1>
-          <p className="font-body text-slate-300 text-base md:text-lg max-w-2xl mx-auto font-light">
-            Bringing architectural vision and turnkey civil construction expertise together under one studio in Nellore.
+        <div className="section-container relative z-10 py-10">
+          <span className="label-text text-[#D98E20] font-medium tracking-[0.25em]">
+            Architecture · Interiors · Structural Engineering
+          </span>
+          <h1 className="heading-xl font-display text-white mt-3 mb-5 font-normal">
+            Design Built for Generations
+          </h1>
+          <p className="font-body text-slate-300 text-base md:text-lg max-w-2xl mx-auto font-light leading-relaxed">
+            Billion Themes Private Limited brings architectural vision and turnkey civil construction expertise together under one studio in Nellore.
           </p>
         </div>
       </section>
 
-      {/* Founder Leadership Section */}
+      {/* Founder & Executive Leadership Section */}
       <section className="bg-[#FDFBF7] section-padding border-b border-slate-200/60">
         <div className="section-container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
-            {/* Founder Image Frame */}
+            {/* Founder Portrait Frame */}
             <div className="lg:col-span-5">
-              <div className="relative p-4 bg-white border border-slate-200 shadow-xl rounded-sm">
-                <div className="aspect-[4/5] overflow-hidden bg-slate-100 relative group">
+              <div className="relative p-4 bg-white border border-slate-200/90 shadow-xl rounded-sm">
+                <div className="aspect-[4/5] overflow-hidden bg-slate-100 relative group rounded-xs">
                   <img
                     src={founder.photo}
                     alt={`${founder.name} — ${founder.title}`}
@@ -66,10 +70,10 @@ export default function AboutPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#121417]/85 via-transparent to-transparent" />
                   
-                  <div className="absolute bottom-6 left-6 right-6 text-white space-y-1">
-                    <span className="label-text text-[#C9A96E]">{founder.title}</span>
-                    <h3 className="font-display text-2xl font-semibold">{founder.name}</h3>
-                    <p className="text-xs font-body text-slate-300 font-medium">{founder.role}</p>
+                  <div className="absolute bottom-6 left-6 right-6 text-white space-y-1.5">
+                    <span className="label-text text-[#D98E20] text-[10px] font-semibold">{founder.title}</span>
+                    <h3 className="font-display text-2xl font-medium tracking-tight">{founder.name}</h3>
+                    <p className="text-xs font-body text-slate-300 font-normal leading-normal">{founder.role}</p>
                   </div>
                 </div>
 
@@ -78,65 +82,73 @@ export default function AboutPage() {
                   href={founder.instagramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-3 flex items-center justify-between p-3 bg-slate-50 hover:bg-[#FFF4E5] border border-slate-200 rounded-xs text-xs font-body text-[#1C4466] hover:text-[#D98E20] transition-colors"
+                  className="mt-3 flex items-center justify-between p-3 bg-slate-50 hover:bg-[#FFF4E5] border border-slate-200/80 rounded-xs text-xs font-body text-[#1C4466] hover:text-[#D98E20] transition-colors"
                 >
                   <div className="flex items-center space-x-2">
                     <Camera size={15} className="text-[#D98E20]" />
-                    <span className="font-semibold">{founder.instagramHandle}</span>
+                    <span className="font-medium text-slate-700">{founder.instagramHandle}</span>
                   </div>
-                  <span className="flex items-center text-[10px] uppercase tracking-wider font-bold">
-                    Follow Founder <ArrowUpRight size={12} className="ml-0.5" />
+                  <span className="flex items-center text-[10px] uppercase tracking-wider font-semibold text-[#1C4466]">
+                    Follow Founder <ArrowUpRight size={12} className="ml-1" />
                   </span>
                 </a>
               </div>
             </div>
 
-            {/* Founder Vision & Story */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="space-y-2">
+            {/* Executive Bio & Studio Philosophy */}
+            <div className="lg:col-span-7 space-y-7">
+              <div className="space-y-3">
                 <div className="inline-flex items-center space-x-2">
-                  <span className="w-6 h-[2px] bg-[#D98E20]" />
-                  <span className="label-text text-[#C9A96E]">FOUNDER &amp; MANAGING DIRECTOR</span>
+                  <span className="w-8 h-[2px] bg-[#D98E20]" />
+                  <span className="label-text text-[#1C4466] font-semibold text-xs tracking-[0.2em]">
+                    EXECUTIVE LEADERSHIP
+                  </span>
                 </div>
-                <h2 className="heading-lg font-display text-[#121417]">
+                <h2 className="heading-lg font-display text-[#121417] font-medium leading-tight">
                   {founder.name}
                 </h2>
-                <p className="font-body text-xs uppercase tracking-widest text-[#1C4466] font-semibold">
+                <p className="font-body text-sm text-[#D98E20] font-semibold tracking-wide">
                   {founder.role}
                 </p>
               </div>
 
-              {/* Motto Banner */}
-              <div className="p-4 bg-[#121417] text-[#C9A96E] font-display text-base font-semibold tracking-wider uppercase rounded-xs border-l-4 border-[#D98E20] flex items-center justify-between">
-                <span>"{founder.motto}"</span>
-                <Compass size={20} className="text-[#D98E20] opacity-80" />
+              {/* Motto Card */}
+              <div className="p-6 bg-white border-l-4 border-[#D98E20] shadow-xs rounded-r-sm space-y-2">
+                <p className="font-display text-xl text-[#121417] italic font-normal leading-relaxed">
+                  "{founder.motto}"
+                </p>
+                <p className="font-body text-xs text-slate-500 uppercase tracking-widest font-semibold pt-1">
+                  — Studio Vision, Billion Themes Private Limited
+                </p>
               </div>
 
               <p className="font-body text-slate-600 text-base md:text-lg font-light leading-relaxed">
                 {founder.bio}
               </p>
 
-              {/* Key Credentials List */}
+              {/* Credentials Grid */}
               <div className="space-y-3 pt-2">
-                <h4 className="label-text text-[#121417] font-bold">Leadership Credentials</h4>
+                <h4 className="label-text text-[#121417] font-semibold text-xs tracking-wider">
+                  Credentials &amp; Roles
+                </h4>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {founder.credentials.map((cred, idx) => (
-                    <li key={idx} className="flex items-start text-xs font-body text-[#121417]">
-                      <CheckCircle2 size={15} className="text-[#D98E20] mr-2 shrink-0 mt-0.5" />
+                    <li key={idx} className="flex items-start text-xs md:text-sm font-body text-slate-700 leading-normal">
+                      <CheckCircle2 size={16} className="text-[#D98E20] mr-2 shrink-0 mt-0.5" />
                       <span>{cred}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="grid grid-cols-2 gap-4 pt-6 border-t border-slate-200">
+              <div className="grid grid-cols-2 gap-6 pt-6 border-t border-slate-200/80">
                 <div className="space-y-1">
-                  <span className="font-display text-2xl font-bold text-[#1C4466]">5.0 ★ Rating</span>
-                  <p className="text-xs font-body text-slate-500 uppercase tracking-wider">121+ Verified Reviews</p>
+                  <span className="font-display text-3xl font-semibold text-[#1C4466]">5.0 ★</span>
+                  <p className="text-xs font-body text-slate-500 uppercase tracking-wider font-medium">121+ Verified Reviews</p>
                 </div>
                 <div className="space-y-1">
-                  <span className="font-display text-2xl font-bold text-[#D98E20]">700+ Posts</span>
-                  <p className="text-xs font-body text-slate-500 uppercase tracking-wider">Active Studio Portfolio</p>
+                  <span className="font-display text-3xl font-semibold text-[#D98E20]">700+</span>
+                  <p className="text-xs font-body text-slate-500 uppercase tracking-wider font-medium">Instagram Studio Posts</p>
                 </div>
               </div>
 
@@ -154,15 +166,15 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Instagram Studio Grid Showcase */}
+      {/* Instagram Studio Stream */}
       <section className="bg-slate-50 section-padding border-b border-slate-200/60">
         <div className="section-container">
           
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
             <div>
-              <span className="label-text text-[#D98E20]">Live Portfolio Stream</span>
-              <h2 className="heading-md font-display text-[#121417] mt-1">
-                Follow Us on Instagram {COMPANY.instagramHandle}
+              <span className="label-text text-[#D98E20]">Portfolio Stream</span>
+              <h2 className="heading-md font-display text-[#121417] mt-1 font-medium">
+                Follow Studio Updates {COMPANY.instagramHandle}
               </h2>
             </div>
             <a
@@ -172,7 +184,7 @@ export default function AboutPage() {
               className="inline-flex items-center text-xs font-body uppercase tracking-widest text-[#1C4466] hover:text-[#D98E20] font-semibold transition-colors"
             >
               <Camera className="w-4 h-4 mr-2 text-[#D98E20]" />
-              Visit Official Instagram Page →
+              Visit Instagram Page →
             </a>
           </div>
 
@@ -196,7 +208,7 @@ export default function AboutPage() {
                   </div>
                 </div>
                 <div className="p-4 space-y-2">
-                  <p className="font-body text-xs text-slate-600 line-clamp-2 leading-relaxed">
+                  <p className="font-body text-xs text-slate-600 line-clamp-2 leading-relaxed font-light">
                     {post.caption}
                   </p>
                   <div className="flex items-center justify-between text-[11px] font-body text-[#D98E20] font-semibold">
@@ -214,7 +226,7 @@ export default function AboutPage() {
       {/* CTA Section */}
       <section className="bg-[#121417] text-white section-padding text-center">
         <div className="section-container max-w-3xl">
-          <h2 className="heading-lg font-display text-white mb-6">Ready to Start Your Project?</h2>
+          <h2 className="heading-lg font-display text-white mb-6 font-normal">Ready to Start Your Project?</h2>
           <p className="font-body text-slate-300 mb-8 text-lg font-light">
             Connect directly with Suchethan Reddy &amp; Billion Themes Private Limited via WhatsApp or phone call.
           </p>

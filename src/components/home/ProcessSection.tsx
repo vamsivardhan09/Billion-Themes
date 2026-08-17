@@ -5,16 +5,16 @@ import { ShieldCheck, CheckCircle2, IndianRupee, Key } from 'lucide-react';
 export function ProcessSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   
-  // Track scroll progress through this specific section
+  // Track scroll progress through this section
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ['start 75%', 'end 75%'],
+    offset: ['start 70%', 'end 80%'],
   });
 
-  // Smooth out progress values
+  // Smooth out progress values for fluid scroll fill
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 20,
+    stiffness: 120,
+    damping: 24,
     restDelta: 0.001,
   });
 
@@ -26,9 +26,9 @@ export function ProcessSection() {
       title: 'Consultation',
       check: 'Signed design brief',
       position: 'top',
-      milestone: 'Day 0 · Your journey begins',
-      milestoneType: 'start',
+      milestone: 'Day 0 · Journey begins',
       iconNum: '01',
+      mobileSide: 'right',
     },
     {
       step: 'STOP 02',
@@ -36,8 +36,8 @@ export function ProcessSection() {
       check: 'Approved renders',
       position: 'bottom',
       milestone: '10% · to begin design',
-      milestoneType: 'payment',
       iconNum: '02',
+      mobileSide: 'left',
     },
     {
       step: 'STOP 03',
@@ -45,8 +45,8 @@ export function ProcessSection() {
       check: 'BOQ + drawings signed',
       position: 'top',
       milestone: '50% · at production kickoff',
-      milestoneType: 'payment',
       iconNum: '03',
+      mobileSide: 'right',
     },
     {
       step: 'STOP 04',
@@ -54,8 +54,8 @@ export function ProcessSection() {
       check: 'Factory QC pass',
       position: 'bottom',
       milestone: '40% · before installation',
-      milestoneType: 'payment',
       iconNum: '04',
+      mobileSide: 'left',
     },
     {
       step: 'STOP 05',
@@ -63,8 +63,8 @@ export function ProcessSection() {
       check: 'Site snag list closed',
       position: 'top',
       milestone: null,
-      milestoneType: null,
       iconNum: '05',
+      mobileSide: 'right',
     },
     {
       step: 'STOP 06',
@@ -72,8 +72,8 @@ export function ProcessSection() {
       check: 'Keys + warranty pack',
       position: 'bottom',
       milestone: 'Welcome Home 🎉',
-      milestoneType: 'finish',
       iconNum: '06',
+      mobileSide: 'left',
     },
   ];
 
@@ -82,7 +82,7 @@ export function ProcessSection() {
       <div className="section-container">
         
         {/* Header */}
-        <div className="max-w-3xl mb-16 space-y-3">
+        <div className="max-w-3xl mb-12 lg:mb-16 space-y-3">
           <div className="flex items-center space-x-2">
             <span className="w-6 h-[2px] bg-[#D98E20]" />
             <span className="label-text text-[#1C4466] font-bold text-xs tracking-[0.25em]">
@@ -90,7 +90,7 @@ export function ProcessSection() {
             </span>
           </div>
           
-          <h2 className="heading-lg font-display text-[#121417] leading-tight">
+          <h2 className="heading-lg font-display text-[#121417] leading-tight font-medium">
             From first call to handover,<br />in six clear phases.
           </h2>
           
@@ -99,10 +99,10 @@ export function ProcessSection() {
           </p>
         </div>
 
-        {/* Desktop Interactive Curved Wave Timeline (Scroll Filled) */}
+        {/* Desktop Interactive Curved Wave Timeline */}
         <div className="hidden lg:block relative my-16 py-12">
           
-          {/* SVG Curved Wave Path */}
+          {/* SVG Horizontal Curved Wave Track */}
           <div className="absolute inset-0 pointer-events-none z-0">
             <svg
               className="w-full h-full"
@@ -249,45 +249,97 @@ export function ProcessSection() {
           </div>
         </div>
 
-        {/* Mobile Curved Scroll Timeline */}
-        <div className="lg:hidden relative my-10 pl-8">
-          {/* Mobile Vertical Wave Line */}
-          <div className="absolute left-3 top-4 bottom-4 w-1 bg-slate-200 rounded-full" />
-          <motion.div
-            className="absolute left-3 top-4 w-1 bg-gradient-to-b from-[#1C4466] via-[#D98E20] to-[#1C4466] rounded-full"
-            style={{ height: useTransform(smoothProgress, [0, 1], ['0%', '100%']) }}
-          />
+        {/* Mobile Vertical S-Curve Wave Timeline (Matching aesthetixspaces.com screenshot) */}
+        <div className="lg:hidden relative my-8 py-4">
+          
+          {/* Vertical S-Curve Wave SVG Line */}
+          <div className="absolute inset-0 pointer-events-none z-0">
+            <svg
+              className="w-full h-full"
+              viewBox="0 0 360 1100"
+              fill="none"
+              preserveAspectRatio="none"
+            >
+              {/* Background Track Line */}
+              <path
+                d="M 180 40 Q 60 130 60 220 T 300 400 T 60 580 T 300 760 T 60 940 T 180 1060"
+                stroke="#E2E8F0"
+                strokeWidth="6"
+                strokeLinecap="round"
+              />
 
-          <div className="space-y-6">
-            {stops.map((item) => (
-              <div key={item.step} className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-xs relative">
-                <div className="absolute -left-[37px] top-5 w-6 h-6 rounded-full bg-[#1C4466] text-white flex items-center justify-center text-[10px] font-bold border-2 border-white shadow-xs">
-                  {item.iconNum}
-                </div>
+              {/* Scroll Filled Wave Line */}
+              <motion.path
+                d="M 180 40 Q 60 130 60 220 T 300 400 T 60 580 T 300 760 T 60 940 T 180 1060"
+                stroke="url(#mobileWaveGradient)"
+                strokeWidth="6"
+                strokeLinecap="round"
+                style={{ pathLength }}
+              />
 
-                <div className="text-xs font-body uppercase tracking-wider mb-2">
-                  <span className="text-[#D98E20] font-bold">{item.step}</span>
-                </div>
-
-                <h4 className="font-display font-semibold text-lg text-[#121417] mb-2">
-                  {item.title}
-                </h4>
-
-                <div className="flex items-center text-xs font-body text-slate-600 mb-3">
-                  <CheckCircle2 size={14} className="text-[#1C4466] mr-1.5 shrink-0" />
-                  <span>{item.check}</span>
-                </div>
-
-                {item.milestone && (
-                  <div className="pt-2 border-t border-slate-100">
-                    <span className="bg-[#FFF4E5] text-[#B87618] text-[10px] font-body px-2.5 py-1 rounded-full inline-flex items-center font-semibold">
-                      {item.milestone}
-                    </span>
-                  </div>
-                )}
-              </div>
-            ))}
+              <defs>
+                <linearGradient id="mobileWaveGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#1C4466" />
+                  <stop offset="50%" stopColor="#D98E20" />
+                  <stop offset="100%" stopColor="#1C4466" />
+                </linearGradient>
+              </defs>
+            </svg>
           </div>
+
+          {/* Mobile Alternating Cards Layout */}
+          <div className="space-y-12 relative z-10">
+            {stops.map((item, idx) => {
+              const isRight = item.mobileSide === 'right';
+
+              return (
+                <div key={item.step} className="relative flex flex-col items-center">
+                  
+                  {/* Step Card (Alternating Left/Right) */}
+                  <div className={`w-[82%] ${isRight ? 'ml-auto pl-2' : 'mr-auto pr-2'}`}>
+                    <div className="bg-white p-4 sm:p-5 rounded-xl border border-slate-200/90 shadow-sm relative group">
+                      
+                      {/* Milestone Pill Badge attached to card */}
+                      {item.milestone && (
+                        <div className="mb-2">
+                          <span className="bg-[#FFF4E5] text-[#B87618] border border-[#FCD39D] text-[10px] font-body px-2.5 py-0.5 rounded-full inline-flex items-center font-semibold">
+                            {idx === 0 && <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] mr-1.5 animate-pulse" />}
+                            {idx > 0 && idx < 5 && <IndianRupee size={10} className="mr-0.5" />}
+                            {idx === 5 && <Key size={10} className="mr-1 text-[#D98E20]" />}
+                            {item.milestone}
+                          </span>
+                        </div>
+                      )}
+
+                      <div className="flex items-center justify-between text-[11px] font-body uppercase tracking-wider mb-1">
+                        <span className="text-[#1C4466] font-bold">{item.step}</span>
+                      </div>
+
+                      <h4 className="font-display font-semibold text-base text-[#121417] mb-1.5">
+                        {item.title}
+                      </h4>
+
+                      <div className="flex items-center text-xs font-body text-slate-600">
+                        <CheckCircle2 size={13} className="text-[#1C4466] mr-1.5 shrink-0" />
+                        <span>{item.check}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Pin Node Circle on Mobile S-Curve */}
+                  <div
+                    className={`absolute top-6 w-9 h-9 rounded-full bg-[#1C4466] text-white flex items-center justify-center text-xs font-bold border-2 border-white shadow-md z-20 ${
+                      isRight ? 'left-[14%]' : 'right-[14%]'
+                    }`}
+                  >
+                    {item.iconNum}
+                  </div>
+
+                </div>
+              );
+            })}
+          </div>
+
         </div>
 
         {/* Section Footer Bar */}
